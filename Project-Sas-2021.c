@@ -1,16 +1,18 @@
 #include<stdio.h>
 
-typedef struct{
+typedef struct compt{
 	char preNom[10];
 	char Nom[10];
 	char CIN [10];
 	float Montant;
 }compet;
 
-	void Le_menu( ){
+compet P[50];
+
+	void Le_menu(){
 		int i=0;
 		
-	compet P[100];
+//	compet P[100];
 	
 		printf("typer le Nom : ");
 		scanf("%s",P[i].preNom);
@@ -18,7 +20,7 @@ typedef struct{
 		printf("typer le CIN: ");
 		scanf("%s",P[i].CIN);
 		printf("typer le Montant :");
-		scanf("%d",&P[i].Montant);
+		scanf("%f",&P[i].Montant);
 	}
 
 
@@ -27,7 +29,7 @@ typedef struct{
 int main(){
 	int i,n;
 	int C=0;
-	compet P[C];
+//	compet *P[C];
 	
 	
 	printf("hello : ");
