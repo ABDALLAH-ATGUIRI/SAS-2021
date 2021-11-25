@@ -1,9 +1,9 @@
-        #include<stdio.h>
+         #include<stdio.h>
     #include<string.h>
     #include<stdlib.h>
 
     typedef struct
-	 {
+	{
         char preNom[10];
         char Nom[10];
         char CIN [10];
@@ -15,7 +15,6 @@
 
     void Le_menu()
 	{
-
           printf("typer le Nom et le Prenome : ");
           scanf("%s",P[C].preNom);
           scanf("%s",P[C].Nom);
@@ -64,7 +63,6 @@
 			}	
 		}
 	}
-
 
 int main(){
 
@@ -129,10 +127,17 @@ do{
 				{
 		            case 1:{
 		            		i=serch(j);
+		            		do{
+							
 		              		printf(" Entrez le montant que vous souhaitez retirer : \n\n ==> ");
 		              		scanf("%f",&R);
+		              		if(R>P[i].Montant)printf(" \t\tcompte non soldable ");
+		              		
+		              		}while(R>P[i].Montant);
+		              		
 		              		P[i].Montant -= R ;
 		              		printf("\t Nouveau montant = %.2f \n",P[i].Montant);
+		              		goto HERE;
                         break;
                           }
                     case 2:{
@@ -141,6 +146,7 @@ do{
                       		scanf("%f",&R);
                      		P[i].Montant += R ;
                       		printf("\t Nouveau montant = %.2f \n",P[i].Montant);
+                      		goto HERE;
                         break;
                           }
                     case 3:{
@@ -219,6 +225,7 @@ do{
 				
 //            	for(i=C-3;i>=0,i<C;i++)
 				i=C-3;
+				if(i>>0)i=0;
 				while(i<C && i>=0){
 				
             		P[i].Montant+=(P[i].Montant*0.013);
@@ -227,7 +234,7 @@ do{
 					printf("\n\t************************************************************************\n");
             		i++;
 				}	
-				scanf("");
+				system ("pause");
 				goto HERE;
 				break;
 			} 
@@ -237,9 +244,6 @@ do{
 				break;
 			}
 		}
-            }while(i>0);
-            
-            
-            
+            }while(i>0);         
         return 0;
       }
